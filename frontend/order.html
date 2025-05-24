@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Online Shop - Order</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+    }
+
+    .order {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .order h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+    #order-summary {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      color: #666;
+      text-align: left;
+    }
+    .btn-order {
+      background: linear-gradient(135deg, #df60d1 0%, #7957ea 100%);
+      border: none;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-order:hover {
+      background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    #order-status {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #27ae60;
+    }
+    #thank-you-message {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #2c3e50;
+      display: none;
+    }
+    #shop-again-btn {
+      display: none;
+      margin-top: 20px;
+      background: #3498db;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    #shop-again-btn:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      background: #fafafa;
+      color: #777;
+      margin-top: 40px;
+    }
+
+    canvas {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Creative Online Shop</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="order">
+    <h2>Order Summary</h2>
+    <div id="order-summary">Loading cart details...</div>
+    <button class="btn-order" onclick="placeOrder()">Place Order</button>
+    <p id="order-status"></p>
+    <p id="thank-you-message">🙏 Thank you for shopping with us!</p>
+    <a href="products.html" id="shop-again-btn">🛍️ Shop Again</a>
+  </section>
+
+  <canvas id="confetti"></canvas>
+
+  <footer>
+    &copy; Creative Online Shop
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const summaryDiv = document.getElementById("order-summary");
+
+      if (cart.length === 0) {
+        summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      let total = 0;
+      const summaryHTML = cart.map(item => {
+        const qty = item.quantity || 1;
+        const itemTotal = item.price * qty;
+        total += itemTotal;
+        return `<li>${item.name} (x${qty}) - ₹${itemTotal.toFixed(2)}</li>`;
+      }).join(" ");
+
+      summaryDiv.innerHTML = `
+        <ul style="list-style: disc; padding-left: 40px; margin-bottom: 20px;">
+          ${summaryHTML}
+        </ul>
+        <p style="font-weight: bold;">Total Price: ₹${total.toFixed(2)}</p>
+      `;
+    });
+
+    function placeOrder() {
+      document.getElementById("order-status").textContent = "🎉 Order placed successfully!";
+      document.getElementById("thank-you-message").style.display = "block";
+      document.getElementById("shop-again-btn").style.display = "inline-block";
+      startConfetti();
+      localStorage.removeItem("cart");
+    }
+
+    function startConfetti() {
+      const canvas = document.getElementById("confetti");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const particles = [];
+
+      for (let i = 0; i < 150; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: canvas.height + Math.random() * 50,
+          vx: (Math.random() - 0.5) * 4,
+          vy: - (Math.random() * 7 + 3),
+          r: Math.random() * 6 + 4,
+          color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+          opacity: Math.random() * 0.5 + 0.5,
+        });
+      }
+
+      function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p, idx) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.1;
+
+          ctx.beginPath();
+          ctx.globalAlpha = p.opacity;
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+
+          if (p.y > canvas.height + 50) particles.splice(idx, 1);
+        });
+        if (particles.length) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+    const userInfo = JSON.parse(localStorage.getItem("userInfo")) || { name: "Guest", email: "" };
+
+const orderData = {
+  user: {
+    name: userInfo.name,
+    email: userInfo.email
+  },
+  items: JSON.parse(localStorage.getItem("cartItems") || "[]"),
+  total: parseFloat(localStorage.getItem("totalPrice")) || 0
+};
+
+document.getElementById("placeOrderBtn").addEventListener("click", () => {
+  fetch("http://localhost:5000/api/order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(orderData)
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Order placed successfully!");
+    // Clear cart and redirect if needed
+  })
+  .catch(err => {
+    console.error("Order submission failed", err);
+  });
+});
+
+  </script>
+</body>
+</html>

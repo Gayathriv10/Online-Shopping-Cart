@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Online Shop - Products</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      color: #333;
+    }
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 2.5rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background0.3s, transform 0.2s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+    }
+    /* Even 4-column Grid */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 24px rgba(0,0,0,0.08);
+    }
+    .product img {
+      width: 60%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #444;
+    }
+    .product p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: #666;
+    }
+    .product button {
+      background: linear-gradient(135deg, #393ce7 0%, #fad0c4 100%);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background0.3s, transform 0.2s, box-shadow 0.2s;
+    }
+    .product button:hover {
+      background: linear-gradient(135deg, #ea9ec9,#c3a0f5 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #777;
+      background: #fafafa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Creative Online Shop</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="order.html">Order</a>
+    </nav>
+  </header>
+
+  <section class="container">
+    
+    <div class="product">
+      <img src="https://th.bing.com/th?id=OPAC.hUQwWMtU3uQ8%2bw474C474&w=220&h=210&c=17&o=5&dpr=1.5&pid=21.1" alt="Smartphone X12">
+      <h3>Smartphone X12</h3>
+      <p>₹29,999</p>
+      <button onclick="addToCart('Smartphone X12',29999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71an9eiBxpL._SL1500_.jpg" alt="Laptop Pro 15">
+      <h3>Laptop Pro 15"</h3>
+      <p>₹74,999</p>
+      <button onclick="addToCart('Laptop Pro 15',74999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71bhWgQK-cL._SL1500_.jpg" alt="Wireless Earbuds">
+      <h3>Wireless Earbuds</h3>
+      <p>₹4,999</p>
+      <button onclick="addToCart('Wireless Earbuds',4999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.XxHRBtjEsXwKvg474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>₹15,700</p>
+      <button onclick="addToCart('Bluetooth Speaker',6999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.AmagYUjFl9nCDQ474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Fitness Tracker">
+      <h3>Fitness Tracker</h3>
+      <p>₹3,999</p>
+      <button onclick="addToCart('Fitness Tracker',3999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.qEELL14TA1RgTw474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="DSLR Camera">
+      <h3>DSLR Camera</h3>
+      <p>₹46,500</p>
+      <button onclick="addToCart('DSLR Camera',45999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th?id=OPAC.fyAJpk%2fCmACFsQ474C474&w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Smart Watch S3">
+      <h3>Smart Watch S3</h3>
+      <p>₹10,273</p>
+      <button onclick="addToCart('Smart Watch S3',10999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/619BkvKW35L._SL1500_.jpg" alt="Gaming Console Z">
+      <h3>Gaming Console Z</h3>
+      <p>₹34,999</p>
+      <button onclick="addToCart('Gaming Console Z',34999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.8PbpCEn54M5BsA474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="4K Monitor">
+      <h3>4K Monitor</h3>
+      <p>₹24,999</p>
+      <button onclick="addToCart('4K Monitor',24999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.g8LiUChfghLKag474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Mechanical Keyboard">
+      <h3>Mechanical Keyboard</h3>
+      <p>₹5,599</p>
+      <button onclick="addToCart('Mechanical Keyboard',6599)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/61mpMH5TzkL._SL1500_.jpg" alt="Gaming Mouse">
+      <h3>Gaming Mouse</h3>
+      <p>₹3,299</p>
+      <button onclick="addToCart('Gaming Mouse',3299)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th?id=OPAC.ggs%2b07xx7dCFiw474C474&w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="USB-C Hub">
+      <h3>USB-C Hub</h3>
+      <p>₹2,299</p>
+      <button onclick="addToCart('USB-C Hub',2199)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71MlcO29QOL._SL1500_.jpg" alt="Portable SSD 1TB">
+      <h3>Portable SSD 1TB</h3>
+      <p>₹8,999</p>
+      <button onclick="addToCart('Portable SSD 1TB',8999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.PsZ1Jq6WS2UGXg474C474?w=220&h=210&c=17&o=5&dpr=1.5&pid=21.1" alt="External HDD 2TB">
+      <h3>External HDD 2TB</h3>
+      <p>₹5,999</p>
+      <button onclick="addToCart('External HDD 2TB',5999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th?id=OPAC.DJrxY1kE8%2fd7RA474C474&w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Wireless Charger">
+      <h3>Wireless Charger</h3>
+      <p>₹2,999</p>
+      <button onclick="addToCart('Wireless Charger',1999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.xjbACerW2OINrw474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Webcam HD">
+      <h3>Webcam HD</h3>
+      <p>₹2,999</p>
+      <button onclick="addToCart('Webcam HD',2999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.4boQ0wmD5OHIvg474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="VR Headset">
+      <h3>VR Headset</h3>
+      <p>₹19,999</p>
+      <button onclick="addToCart('VR Headset',27999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.IVc8TwMcqNe5AA474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Drone Pro">
+      <h3>Drone Pro</h3>
+      <p>₹19,882</p>
+      <button onclick="addToCart('Drone Pro',55999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.iSNpoRQk5Uz7bw474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Projector 1080p">
+      <h3>Projector 1080p</h3>
+      <p>₹22,169</p>
+      <button onclick="addToCart('Projector 1080p',22999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.EqkVE8FnXq3SlA474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="E-reader Paper">
+      <h3>E-reader Paper</h3>
+      <p>₹9,999</p>
+      <button onclick="addToCart('E-reader Paper',12999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.iFUt7MExzn7AjA474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Laptop Stand">
+      <h3>Laptop Stand</h3>
+      <p>₹1,499</p>
+      <button onclick="addToCart('Laptop Stand',1499)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71o8Q5XJS5L._SL1500_.jpg" alt="Noise Cancelling Headphones">
+      <h3>Noise Cancelling Headphones</h3>
+      <p>₹12,999</p>
+      <button onclick="addToCart('Noise Cancelling Headphones',12999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.wcniHAqbgybDXw474C474?w=220&h=220&c=17&o=5&dpr=1.5&pid=21.1" alt="Action Camera">
+      <h3>Action Camera</h3>  
+      <p>₹14,699</p>
+      <button onclick="addToCart('Action Camera',14999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th/id/OPAC.ds1JyC2mp9CT1Q474C474?w=220&h=210&c=17&o=5&dpr=1.5&pid=21.1" alt="Gaming Chair">
+      <h3>Gaming Chair</h3>
+      <p>₹11,393</p>
+      <button onclick="addToCart('Gaming Chair',11999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/61KIy6gX-CL._SL1000_.jpg" alt="Smart Home Hub">
+      <h3>Smart Home Hub</h3>
+      <p>₹4,999</p>
+      <button onclick="addToCart('Smart Home Hub',4999)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/61IxWv3ecpL._SL1000_.jpg" alt="Echo Dot (4th Gen)">
+      <h3>Echo Dot (4th Gen)</h3>
+      <p>₹4,499</p>
+      <button onclick="addToCart('Echo Dot (4th Gen)',4499)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://th.bing.com/th?id=OPAC.v4c2PLyaqg5%2buQ474C474&w=592&h=550&o=5&dpr=1.5&pid=21.1" alt="Kindle Paperwhite">
+      <h3> Interactive Stainless Steel Water Bottle </h3>
+      <p>₹459</p>
+      <button onclick="addToCart('Kindle Paperwhite',11299)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/51CgKGfMelL._SL1000_.jpg" alt="Fire TV Stick 4K">
+      <h3>Fire TV Stick 4K</h3>
+      <p>₹3,499</p>
+      <button onclick="addToCart('Fire TV Stick 4K',3499)">Add to Cart</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; Creative Online Shop
+  </footer>
+
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>
