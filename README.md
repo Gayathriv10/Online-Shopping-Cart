@@ -4,14 +4,13 @@ This is a simple and interactive Online Shopping Cart web application built usin
 
 ## 📌Features
 
-- 🛍️ Product listing with images, names, and prices in Indian Rupees (₹)
-- 🔍 Search and filter products
-- ➕ Add products to cart with quantity selection
-- 🛒 View, update, and remove items from cart
-- 📦 Place an order and view confirmation with animation
-- 📱 Responsive design for mobile and desktop
-- 🧾 Order history and data storage using MongoDB
-- 🔐 User signup and login system
+-  Product listing with images, names, and prices in Indian Rupees (₹)
+-  Add products to cart with quantity selection
+-  View, update, and remove items from cart
+-  Place an order and view confirmation with animation
+-  Responsive design for mobile and desktop
+-  Order history and data storage using MongoDB
+-  User signup and login system
 
 ## ⚙️ Technologies Used
 
