@@ -57,3 +57,19 @@ Create a `.env` file in the root directory and add:
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 ```
+
+## Screenshots
+
+![Sample Output Images](images/Screenshot (77).png)
+
+
+![Sample Output Images](images/Screenshot (78).png)
+
+
+![Sample Output Images](images/Screenshot (79).png)
+
+
+![Sample Output Images](images/Screenshot (83).png)
+
+
+
